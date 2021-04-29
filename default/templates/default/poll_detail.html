@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-hant">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>線上投票</title>
+</head>
+<body>
+    <h1>{{ poll.subject }}</h1>
+    <p>建立日期：{{ poll.date_created }}</p>
+    <p>{{ poll.desc }}</p>
+
+    <ul>
+        {% for o in option_list %}
+        <li>{{ o.title }} : {{ o.count }} 票</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
