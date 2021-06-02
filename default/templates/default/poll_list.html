@@ -4,7 +4,10 @@
 <h1>投票主題</h1>
 <ul>
     {% for p in poll_list %}
-    <li>{{ p.date_created }} {{ p.subject }}</li>
+    <li>
+        {{ p.date_created }}
+        <a href="/poll/{{ p.id }}/">{{ p.subject }}</a>
+    </li>
     {% endfor %}
 </ul>  
 {% endblock %}

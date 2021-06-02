@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, RedirectView
 from .models import Poll, Option
 
 # Create your views here.
@@ -17,3 +17,11 @@ class PollDetail(DetailView):
         ctx = super().get_context_data(**kwargs)
         ctx['option_list'] = Option.objects.filter(poll_id=self.kwargs['pk'])
         return ctx
+
+class PollVote(RedirectView):
+
+    def get_redirect_url(self, *args, **kwargs):
+        op = Option.objects.get(id=self.kwargs['oid'])
+        op.count += 1
+        op.save()
+        return "/poll/{}/".format(op.poll_id)
