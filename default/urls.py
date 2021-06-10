@@ -6,4 +6,6 @@ urlpatterns = [
     path('poll/', views.PollList.as_view()), 
     path('poll/<int:pk>/', views.PollDetail.as_view()), 
     path('option/<int:oid>/', views.PollVote.as_view()),
+    path('poll/create/',views.PollCreate.as_view()),
+    
 ]
