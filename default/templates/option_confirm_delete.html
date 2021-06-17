@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div>
+    確認要刪除【{{ option }}】嗎?
+
+    <P>{{ poll.desc }}</p>
+</div>
+<form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="確認刪除"
+</form>
+
+{% endblock %}

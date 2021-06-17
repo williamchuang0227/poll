@@ -2,14 +2,25 @@
 
 {% block content %}
 <h1>{{ poll.subject }}</h1>
-<p>建立日期：{{ poll.date_created }}</p>
+
+<p>
+    建立日期：{{ poll.date_created }}
+    | <a href="/poll/{{ p.id }}/edit/">編輯</a>
+    | <a href="/poll/{{ poll .id }}/delete">刪除</a>
+</p>
+
 <p>{{ poll.desc }}</p>
+
+<a href="/poll/{{ poll.id }}/add/">新增選項</a>
+
 
 <ul>
     {% for o in option_list %}
     <li>
         <a href="/option/{{ o.id }}/">{{ o.title }}</a>
         : {{ o.count }} 票
+        | <a herf="/option/{{ o.id }}/edit/">修改</a>
+        | <a herf="/option/{{ o.id }}/delete/">刪除</a>
     </li>
     {% endfor %}
 </ul>  
